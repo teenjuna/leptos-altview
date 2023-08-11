@@ -29,14 +29,11 @@ view![
     "some-web-component"("some-custom-attribute" = true),
     Await(
         future = || fetch_monkeys(3),
-        children = |data| view![
-            p( *data, " little monkeys, jumping on the bed" )
-        ]
+        children = |data| view![p(*data, " little monkeys, jumping on the bed")]
     ),
-    Await(
-        future = || fetch_monkeys(3),
-        bind[data],
-        p( *data, " little monkeys, jumping on the bed" )
-    ),
+    Await(future = || fetch_monkeys(3), |data| view![p(
+        *data,
+        " little monkeys, jumping on the bed"
+    )]),
 ]
 ```
