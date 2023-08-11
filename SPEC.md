@@ -27,20 +27,16 @@ view![
         )
     ),
     "some-web-component"("some-custom-attribute" = true),
-    Await(future = || fetch_monkeys(3), |data| view![p(
-        *data,
-        " little monkeys, jumping on the bed"
-    )]),
     Await(
-        AwaitProps {
-            blocking: false,
-            future: || fetch_monkeys(3),
-        },
-        |data| view![p(*data, " little monkeys, jumping on the bed")],
+        future = || fetch_monkeys(3),
+        children = |data| view![
+            p( *data, " little monkeys, jumping on the bed" )
+        ]
     ),
     Await(
-        (false, || fetch_monkeys(3)),
-        |data| view![p(*data, " little monkeys, jumping on the bed")],
+        future = || fetch_monkeys(3),
+        bind[data],
+        p( *data, " little monkeys, jumping on the bed" )
     ),
 ]
 ```
