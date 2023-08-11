@@ -39,8 +39,7 @@ view![
         |data| view![p(*data, " little monkeys, jumping on the bed")],
     ),
     Await(
-        false,
-        || fetch_monkeys(3),
+        (false, || fetch_monkeys(3)),
         |data| view![p(*data, " little monkeys, jumping on the bed")],
     ),
 ]
