@@ -1,0 +1,6 @@
+max_width = 80
+imports_granularity = "Item"
+group_imports = "StdExternalCrate"
+wrap_comments = true
+edition = "2021"
+
