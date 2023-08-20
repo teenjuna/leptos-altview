@@ -4,7 +4,7 @@ mod field;
 
 use syn::parse::Parse;
 use syn::parse::ParseStream;
-use syn::Error;
+
 use syn::Expr;
 use syn::Result;
 
@@ -21,7 +21,7 @@ pub enum Node {
 
 impl Parse for Node {
     fn parse(input: ParseStream) -> Result<Self> {
-        Ok(Self::Element(Element::parse(&input)?))
+        Ok(Self::Element(Element::parse(input)?))
         // if let Ok(v) = Element::parse(&input) {
         //     Ok(Self::Element(v))
         // } else if let Ok(v) = Component::parse(&input) {

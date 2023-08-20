@@ -12,9 +12,10 @@ pub struct Body {
 
 impl Parse for Body {
     fn parse(input: ParseStream) -> Result<Self> {
-        let nodes = input.parse_terminated(Node::parse, Token![,])?;
-        Ok(Self {
-            nodes: nodes.into_iter().collect(),
-        })
+        let nodes = input
+            .parse_terminated(Node::parse, Token![,])?
+            .into_iter()
+            .collect();
+        Ok(Self { nodes })
     }
 }

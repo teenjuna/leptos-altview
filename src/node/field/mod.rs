@@ -14,7 +14,7 @@ pub enum Field {
 
 impl Parse for Field {
     fn parse(input: ParseStream) -> Result<Self> {
-        if let Ok(v) = Attribute::parse(&input) {
+        if let Ok(v) = Attribute::parse(input) {
             Ok(Self::Attribute(v))
         } else {
             Err(Error::new(input.span(), "failed to parse field"))
